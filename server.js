@@ -45,6 +45,11 @@ app.get("/events", (req, res) => {
     res.render("events");
 });
 
+// Get route for team page
+app.get("/team", (req, res) => {
+    res.render("team");
+});
+
 // Auth page route
 app.use("/auth", require("./routes/auth"));
 

@@ -8,17 +8,22 @@
 
   </head>
 
-  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="./css/spinner.css">
   <body>
-      
+      <!-- Spinner -->
+    <div class="cxq-spinner cxq-spinner--doubleBounce">
+        <div class="cxq-spinner-hexagon cxq-spinner-hexagon-1"></div>
+        <div class="cxq-spinner-hexagon cxq-spinner-hexagon-2 "></div>
+    </div>
     <div class="bgline"></div>
     <div class="login">
         <div class="login-wrap">
             <img class="logo" src="images/ureckon_white.svg" alt="">
             <div id="signinbox">
-                <form id="signinform" action="/auth/login" method="post">
-                    <input name="email" type="email" class="inputfield" placeholder="Email" required />
-                    <input name="password" type="Password" class="inputfield" placeholder="Password" required />
+                <form id="signinform">
+                    <input type="text" class="inputfield" placeholder="Username" required />
+                    <input type="Password" class="inputfield" placeholder="Password" required />
                     <button id="loginsubmit" type="submit" class="inputsubmit">Sign In</button>
                 </form>
                 <div class="spf">
@@ -26,13 +31,13 @@
                 </div>
             </div>
             <div id="signupbox">
-                <form id="signupform" action="/auth/signup" method="post">
-                    <input name="name" type="text" class="inputfield" placeholder="Name" required />
-                    <input name="email" type="email" class="inputfield" placeholder="Email" required />
-                    <input name="password" type="Password" class="inputfield" placeholder="Password" required />
-                    <input name="password2" type="Password" class="inputfield" placeholder="Confirm Password" required />                    
-                    <input name="college" type="text" class="inputfield" placeholder="College Name" required />
-                    <input name="phone" type="tel" class="inputfield" placeholder="Mobile Number" required />
+                <form id="signupform">
+                    <input type="text" class="inputfield" placeholder="Username" required />
+                    <input type="Password" class="inputfield" placeholder="Password" required />
+                    <input type="Password" class="inputfield" placeholder="Confirm Password" required />
+                    <input type="email" class="inputfield" placeholder="Email" required />
+                    <input type="text" class="inputfield" placeholder="College Name" required />
+                    <input type="tel" class="inputfield" placeholder="Mobile Number" required />
                     <button id="signupsubmit" type="submit" class="inputsubmit">Sign Up</button>
                 </form>
                 
@@ -51,5 +56,20 @@
 
     <!-- Auth JS script -->
     <script src="js/auth.js"></script>
+
+    <!-- Spinner Script -->
+    <script>
+        $(document).ready(function () {
+            $(".bgline, .login").hide();
+            $("body").css("background-color", "#fff");
+            setTimeout(() => {
+                $(".cxq-spinner").hide();
+                // $("body").css("background-color", "#1e1f23");
+                $(".bgline, .login").fadeIn(1000);
+            }, 3000);
+        });
+
+
+    </script>
   </body>
 </html>

@@ -30,10 +30,22 @@ app.get("/gallery", (req, res) => {
     res.render("gallery");
 });
 
+// Get route for about page
 app.get("/about", (req, res) => {
     res.render("about");
 });
 
+// Get route for sponsors page
+app.get("/sponsors", (req, res) => {
+    res.render("sponsors");
+});
+
+// Get route for events page
+app.get("/events", (req, res) => {
+    res.render("events");
+});
+
+// Auth page route
 app.use("/auth", require("./routes/auth"));
 
 const PORT = process.env.PORT || 5000;

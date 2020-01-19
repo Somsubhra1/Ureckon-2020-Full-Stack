@@ -20,6 +20,8 @@ app.use(passport.session());
 // Static files middleware:
 app.use(express.static(path.join(__dirname, "/public")));
 
+// TODO: Make mongoose connection to MongoDB
+
 // Get route for index page
 app.get("/", (req, res) => {
     res.render("index");

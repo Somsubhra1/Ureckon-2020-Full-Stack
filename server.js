@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const passport = require("passport");
+const mongoose = require("mongoose");
 
 // Passport config
 require("./strategy/passport")(passport);
@@ -20,7 +21,14 @@ app.use(passport.session());
 // Static files middleware:
 app.use(express.static(path.join(__dirname, "/public")));
 
-// TODO: Make mongoose connection to MongoDB
+// Connection to MongoDB
+mongoose
+    .connect(
+        "mongodb+srv://ureckon:b+qddHS2SgBt-*g@cluster0-g5yjl.mongodb.net/test?retryWrites=true&w=majority",
+        { useNewUrlParser: true, useUnifiedTopology: true }
+    )
+    .then(() => console.log("MongoDB connected successfully"))
+    .catch(err => console.log(err));
 
 // Get route for index page
 app.get("/", (req, res) => {
@@ -42,11 +50,6 @@ app.get("/sponsors", (req, res) => {
     res.render("sponsors");
 });
 
-// Get route for events page
-app.get("/events", (req, res) => {
-    res.render("events");
-});
-
 // Get route for team page
 app.get("/team", (req, res) => {
     res.render("team");
@@ -54,6 +57,9 @@ app.get("/team", (req, res) => {
 
 // Auth page route
 app.use("/auth", require("./routes/auth"));
+
+// Events page route
+app.use("/events", require("./routes/events"));
 
 const PORT = process.env.PORT || 5000;
 

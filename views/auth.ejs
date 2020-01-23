@@ -23,24 +23,24 @@
         <div class="login-wrap">
             <img class="logo" src="images/ureckon_white.svg" alt="">
             <div id="signinbox">
-                <form id="signinform">
-                    <input type="text" class="inputfield" placeholder="Username" required />
-                    <input type="Password" class="inputfield" placeholder="Password" required />
-                    <button id="loginsubmit" type="submit" class="inputsubmit">Sign In</button>
+                <form id="signinform" method="POST" action="/auth/login">
+                    <input type="email" class="inputfield" placeholder="Email" name="email" required />
+                    <input type="Password" class="inputfield" placeholder="Password" name="password" required />
+                    <input id="loginsubmit" type="submit" class="inputsubmit" />
                 </form>
                 <div class="spf">
                     <a onclick="susb()">Sign Up</a>
                 </div>
             </div>
             <div id="signupbox">
-                <form id="signupform">
-                    <input type="text" class="inputfield" placeholder="Username" required />
-                    <input type="Password" class="inputfield" placeholder="Password" required />
-                    <input type="Password" class="inputfield" placeholder="Confirm Password" required />
-                    <input type="email" class="inputfield" placeholder="Email" required />
-                    <input type="text" class="inputfield" placeholder="College Name" required />
-                    <input type="tel" class="inputfield" placeholder="Mobile Number" required />
-                    <button id="signupsubmit" type="submit" class="inputsubmit">Sign Up</button>
+                <form id="signupform" method="POST" action="/auth/signup">
+                    <input type="text" class="inputfield" placeholder="Username" name="name" required />
+                    <input type="Password" class="inputfield" placeholder="Password" name="password" required />
+                    <input type="Password" class="inputfield" placeholder="Confirm Password" name="password2" required />
+                    <input type="email" class="inputfield" placeholder="Email" name="email" required />
+                    <input type="text" class="inputfield" placeholder="College Name" name="college" required />
+                    <input type="tel" class="inputfield" placeholder="Mobile Number" name="phone" required />
+                    <input id="signupsubmit" type="submit" class="inputsubmit" />
                 </form>
                 
                 <div class="spf">

@@ -26,6 +26,7 @@ router.post("/login", (req, res, next) => {
 router.post("/signup", (req, res) => {
     // console.log(req.body);
     const { name, email, password, password2, college, phone } = req.body;
+    
     if (password !== password2) {
         return res.json({ error: "Passwords don't match" });
     }
@@ -48,7 +49,9 @@ router.post("/signup", (req, res) => {
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     if (err) {
-                        throw err;
+                        // throw err;
+                        console.log(err.message);
+                        
                     }
                     //  Set password to hashed
                     newUser.password = hash;
@@ -56,10 +59,10 @@ router.post("/signup", (req, res) => {
                     newUser
                         .save()
                         .then(user => {
-                            res.json({
-                                msg:
-                                    "Successfully registered. Now you can login"
-                            });
+                            // res.json({
+                            //     msg:
+                            //         "Successfully registered. Now you can login"
+                            // });
                             res.redirect("/auth");
                         })
                         .catch(err => {

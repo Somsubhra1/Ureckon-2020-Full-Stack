@@ -33,7 +33,7 @@ let userSchema = new schema({
     },
     Role: {
         type: schema.Types.ObjectId,
-        required: true
+        // required: true
     }
 });
 

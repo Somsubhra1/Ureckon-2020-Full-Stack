@@ -26,8 +26,12 @@ module.exports = function(passport) {
                                     throw err;
                                 }
                                 if (isMatch) {
+                                    // console.log("success");
+                                    
                                     return done(null, user);
                                 } else {
+                                    // console.log("fail");
+
                                     return done(null, false, {
                                         message: "Password incorrect"
                                     });

@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 const passport = require("passport");
 const mongoose = require("mongoose");
+const session = require("express-session");
 
 // Passport config
 require("./strategy/passport")(passport);
@@ -13,6 +14,15 @@ app.set("view engine", "ejs");
 // Express BodyParser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Express session middleware
+app.use(
+    session({
+        secret: "secret",
+        resave: true,
+        saveUninitialized: true
+    })
+);
 
 // Passport middleware
 app.use(passport.initialize());
